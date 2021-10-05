@@ -3,7 +3,7 @@
     <h1>All Shows</h1>
     <div v-for="show in shows" v-bind:key="show.id">
       <h2>{{ show.title }}</h2>
-      <img v-bind:src="show.url" v-bind:alt="show.title" />
+      <img v-bind:src="show.image" v-bind:alt="show.title" />
       <p>Title: {{ show.title }}</p>
       <p>Year: {{ show.year }}</p>
       <p>Description: {{ show.description }}</p>
@@ -11,11 +11,18 @@
       <p>Seasons: {{ show.seasons }}</p>
       <p>Network: {{ show.network }}</p>
       <p>Favorite: {{ show.favorite }}</p>
-      <p>Image: {{ show.image }}</p>
+      <!-- <p>Image: {{ show.image }}</p> -->
       <p>User_id: {{ show.user_id }}</p>
     </div>
   </div>
 </template>
+
+<style>
+img {
+  width: 100%;
+  max-width: 600px;
+}
+</style>
 
 <script>
 import axios from "axios";
@@ -30,9 +37,9 @@ export default {
   },
   methods: {
     indexShows: function () {
-      axios.get("/showsindex").then((response) => {
+      axios.get("/shows").then((response) => {
         console.log("shows index", response);
-        this.photos = response.data;
+        this.shows = response.data;
       });
     },
   },
