@@ -19,8 +19,8 @@
 
 <style>
 img {
-  width: 100%;
-  max-width: 600px;
+  height: 100%;
+  max-height: 300px;
 }
 </style>
 
